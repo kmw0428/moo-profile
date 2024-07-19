@@ -34,7 +34,7 @@ const SideBar: React.FC<SideBarProps> = ({ currentSection }) => {
           <li className="moowon">MOOWON</li>
         </Link>
         <ul className="menu-items1">
-          {['Introduction', 'Skills', 'Portfolio', 'Contact'].map((item, index) => (
+          {['Introduction', 'Skills', 'Projects', 'Contact'].map((item, index) => (
             <li 
               key={item} 
               className={currentSection === `section${index + 1}` ? "active" : ""}

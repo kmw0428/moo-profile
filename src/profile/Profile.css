@@ -10,13 +10,32 @@
 
 .section {
   height: 100vh;
-  display: flex;
-  justify-content: center;
   font-size: 1.5rem;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
 }
 
-.title {
-  
+.skills-container, .tools-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;  /* 아이템 사이의 간격 */
+}
+
+.skill-item, .tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill-icon, .tool-icon {
+  width: 75px;  /* 아이콘 크기 조절 */
+  height: 75px;
+  object-fit: contain;
 }
 
 .about-content {
