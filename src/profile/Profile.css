@@ -1,6 +1,13 @@
 .profile {
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.profile::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
 }
 
 .profile > div {
@@ -8,9 +15,22 @@
   height: 100vh;
 }
 
+.contact-section {
+  height: 300px !important;
+  scroll-snap-align: none;
+  padding: 20px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.section-contact {
+  height: 300px !important;
+}
+
 .section {
-  height: 100vh;
   font-size: 1.5rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   padding: 20px;
   box-sizing: border-box;
   transition: margin-left 0.3s ease;
@@ -55,4 +75,19 @@
 .highlight {
   color: #61dafb;
   font-weight: bold;
+}
+
+.breakable {
+  display: inline;
+}
+
+@media (max-width: 768px) { /* 원하는 브레이크포인트로 조정 가능 */
+  .breakable {
+    width: 100%;
+  }
+
+  .breakable::after {
+    content: '\A';
+    white-space: pre;
+  }
 }
