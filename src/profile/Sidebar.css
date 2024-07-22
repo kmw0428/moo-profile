@@ -136,6 +136,10 @@
   animation: pulse 0.3s ease;
 }
 
+.selfintro {
+  font-size: var(--selfintro-font-size);
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -164,10 +168,6 @@
   .menu-items.open {
     transform: translateX(0);
     opacity: 1;
-  }
-
-  .selfintro {
-    font-size: 15px;
   }
 }
 
