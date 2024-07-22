@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3, U+1100-11FF, U+3130-318F, U+A960-A97F, U+D7B0-D7FF;
+}
+
 :root {
   font-family: Helvetica;
   line-height: 1.5;
@@ -13,6 +21,7 @@
   -moz-osx-font-smoothing: grayscale;
   --icon-size: clamp(30px, calc(10px + 4vw), 80px);
   --h1-font-size: clamp(1.8rem, calc(1.5rem + 3vw), 3.5rem);
+  --selfintro-font-size: clamp(0.9rem, calc(0.5rem + 1vw), 1.5rem);
 }
 
 a {
@@ -28,13 +37,14 @@ body {
   min-height: 100vh;
   scroll-snap-type: y mandatory;
   overflow: hidden;
+  font-family: 'Pretendard-Regular';
 }
 
 h1 {
   font-size: var(--h1-font-size);
   line-height: 0;
-  margin-bottom: 1.5em;
-  margin-top: 10px;
+  margin-bottom: 1.2em;
+  margin-top: 0.8em;
 }
 
 @media (prefers-color-scheme: light) {
