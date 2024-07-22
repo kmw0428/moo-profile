@@ -8,7 +8,7 @@ export default function AboutMe() {
           신입 프론트엔드 개발자<br />
           김무원입니다.
         </h2>
-        <p>
+        <p className="selfintro">
           <span className="highlight">React</span>와 <span className="highlight">TypeScript</span>를 주력으로 사용하며,<br />
           직관적이고 반응형 웹 애플리케이션 개발에 열정을 가지고 있습니다.<br />
           새로운 기술 습득과 문제 해결에 대한 끊임없는 호기심으로,<br />

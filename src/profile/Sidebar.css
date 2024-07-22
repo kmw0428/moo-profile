@@ -148,7 +148,7 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1800px) {
   .hamburger {
     display: flex;
     position: absolute;
@@ -164,6 +164,10 @@
   .menu-items.open {
     transform: translateX(0);
     opacity: 1;
+  }
+
+  .selfintro {
+    font-size: 15px;
   }
 }
 

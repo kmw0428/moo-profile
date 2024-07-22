@@ -16,25 +16,28 @@
   transition: margin-left 0.3s ease;
 }
 
-.skills-container, .tools-container {
+.skills-container,
+.tools-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;  /* 아이템 사이의 간격 */
+  gap: 20px; /* 아이템 사이의 간격 */
 }
 
-.skill-item, .tool-item {
+.skill-item,
+.tool-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.skill-icon, .tool-icon {
-  width: 75px;  /* 아이콘 크기 조절 */
-  height: 75px;
+.skill-icon,
+.tool-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
   object-fit: contain;
 }
 
@@ -47,7 +50,6 @@
 
 .typing-text {
   font-weight: bold;
-  margin-bottom: 40px;
 }
 
 .highlight {
