@@ -1,0 +1,9 @@
+{
+    "title": "프로젝트 제목",
+    "fullDescription": "프로젝트 상세 설명...",
+    "features": ["기능1", "기능2", "기능3"],
+    "technologies": ["기술1", "기술2", "기술3"],
+    "challenges": "도전 과제 설명...",
+    "lessons": "배운 점 설명...",
+    "additionalImages": ["/path/to/image1.jpg", "/path/to/image2.jpg"]
+  }

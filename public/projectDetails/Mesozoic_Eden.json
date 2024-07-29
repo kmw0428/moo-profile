@@ -1,0 +1,16 @@
+{
+    "title": "Mesozoic Eden",
+    "fullDescription": "Mesozoic Eden은 공룡과 직원을 소개하는 웹사이트입니다. 이 프로젝트는...",
+    "features": [
+      "다양한 공룡 종 소개",
+      "직원 프로필 및 역할 설명",
+      "인터랙티브 지도"
+    ],
+    "technologies": ["Html", "Css", "JavaScript", "Spring Boot", "MongoDB"],
+    "challenges": "가장 큰 도전 과제는...",
+    "lessons": "이 프로젝트를 통해 배운 점은...",
+    "additionalImages": [
+      "/projects/mesozoicEden1.jpg",
+      "/projects/mesozoicEden2.jpg"
+    ]
+  }
