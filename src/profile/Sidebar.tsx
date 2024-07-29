@@ -31,12 +31,12 @@ const SideBar: React.FC<SideBarProps> = ({ currentSection }) => {
       </div>
       <div className={`menu-items ${isOpen ? 'open' : ''}`}>
         <Link to="/">
-          <li className="moowon">MOOWON</li>
+          <img src="/mwc.png" className="mwc" />
         </Link>
         <ul className="menu-items1">
           {['Introduction', 'Skills', 'Projects', 'Contact'].map((item, index) => (
-            <li 
-              key={item} 
+            <li
+              key={item}
               className={currentSection === `section${index + 1}` ? "active" : ""}
               onClick={(e) => scrollToSection(e, `section${index + 1}`)}
             >

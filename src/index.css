@@ -40,6 +40,14 @@ body {
   font-family: 'Pretendard-Regular';
 }
 
+body.modal-open,
+html.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  position: fixed !important;
+}
+
 h1 {
   font-size: var(--h1-font-size);
   line-height: 0;

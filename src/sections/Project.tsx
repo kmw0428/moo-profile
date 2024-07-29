@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './Project.css';
+import { ProjectDetails } from '../types';
 
 interface ProjectCardProps {
   image: string;
@@ -8,9 +9,28 @@ interface ProjectCardProps {
   keywords: string[];
   pageUrl?: string;
   githubUrl?: string;
+  detailsFile: string;
+  openModal: (details: ProjectDetails) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, keywords, pageUrl, githubUrl }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, keywords, pageUrl, githubUrl, detailsFile, openModal }) => {
+  const [projectDetails, setProjectDetails] = useState<ProjectDetails | null>(null);
+
+  useEffect(() => {
+    if (detailsFile) {
+      fetch(detailsFile)
+        .then(response => response.json())
+        .then(data => setProjectDetails(data))
+        .catch(error => console.error("Error loading project details:", error));
+    }
+  }, [detailsFile]);
+
+  const handleOpenModal = () => {
+    if (projectDetails) {
+      openModal(projectDetails);
+    }
+  };
+
   return (
     <div className="project-card">
       <img src={image} alt={title} className="project-image" />
@@ -25,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ke
         <div className="overlay-content">
           <h3>{title}</h3>
           <div className="project-buttons">
-            <button className="detail-button">자세히 보기</button>
+            <button className="detail-button" onClick={handleOpenModal}>자세히 보기</button>
             {pageUrl && (
               <a href={pageUrl} target="_blank" rel="noopener noreferrer" className="site-button">
                 사이트
@@ -43,7 +63,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ke
   );
 };
 
-export default function Project() {
+interface ProjectProps {
+  openModal: (details: ProjectDetails) => void;
+}
+
+const Project: React.FC<ProjectProps> = ({ openModal }) => {
   const projects = [
     {
       image: '/projects/dinosaurmain.png',
@@ -51,7 +75,8 @@ export default function Project() {
       description: 'Mesozoic Eden의 공룡과 직원을 소개하는 사이트입니다.',
       keywords: ['팀', '공룡'],
       pageUrl: '',
-      githubUrl: 'https://github.com/kmw0428/dinosaurfront',
+      githubUrl: 'https://github.com/kmw0428/Mesozoic_Eden',
+      detailsFile: '/projectDetails/Mesozoic_Eden.json',
     },
     {
       image: '/projects/shoppingmain.png',
@@ -60,6 +85,7 @@ export default function Project() {
       keywords: ['팀', '반응형', '사이드'],
       pageUrl: 'https://shoppingfront.onrender.com',
       githubUrl: 'https://github.com/kmw0428/shop-front',
+      detailsFile: '/projectDetails/Céleste.json',
     },
     {
       image: '/projects/moo-portfolio.png',
@@ -68,19 +94,23 @@ export default function Project() {
       keywords: ['개인', '포트폴리오', '반응형', '사이드'],
       pageUrl: 'https://moo-profile.onrender.com',
       githubUrl: 'https://github.com/kmw0428/moo-profile',
+      detailsFile: '/projectDetails/Moo-Portfolio.json',
     }
     // 더 많은 프로젝트를 추가할 수 있습니다
   ];
+
   return (
     <section id="section3" className="section">
       <div className="about-content">
-        <h1 className="title">PROJECT</h1>
+        <h1 className="title">PROJECTS</h1>
         <div className="project-container">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} openModal={openModal} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+export default Project;
