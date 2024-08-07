@@ -49,7 +49,7 @@ const Project: React.FC = () => {
       image: '/projects/dinosaurmain.png',
       title: 'Mesozoic Eden',
       description: 'Mesozoic Eden의 공룡과 직원을 소개하는 사이트입니다.',
-      keywords: ['팀', '공룡'],
+      keywords: ['팀', '공룡', '직원'],
       pageUrl: '',
       githubUrl: 'https://github.com/kmw0428/Mesozoic_Eden',
       detailsFile: '/projectDetails/Mesozoic_Eden.json',
