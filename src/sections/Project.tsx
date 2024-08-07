@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './Project.css';
-import { ProjectDetails } from '../types';
 
 interface ProjectCardProps {
   image: string;
@@ -10,27 +9,9 @@ interface ProjectCardProps {
   pageUrl?: string;
   githubUrl?: string;
   detailsFile: string;
-  openModal: (details: ProjectDetails) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, keywords, pageUrl, githubUrl, detailsFile, openModal }) => {
-  const [projectDetails, setProjectDetails] = useState<ProjectDetails | null>(null);
-
-  useEffect(() => {
-    if (detailsFile) {
-      fetch(detailsFile)
-        .then(response => response.json())
-        .then(data => setProjectDetails(data))
-        .catch(error => console.error("Error loading project details:", error));
-    }
-  }, [detailsFile]);
-
-  const handleOpenModal = () => {
-    if (projectDetails) {
-      openModal(projectDetails);
-    }
-  };
-
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, keywords, pageUrl, githubUrl }) => {
   return (
     <div className="project-card">
       <img src={image} alt={title} className="project-image" />
@@ -45,7 +26,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ke
         <div className="overlay-content">
           <h3>{title}</h3>
           <div className="project-buttons">
-            <button className="detail-button" onClick={handleOpenModal}>자세히 보기</button>
             {pageUrl && (
               <a href={pageUrl} target="_blank" rel="noopener noreferrer" className="site-button">
                 사이트
@@ -63,11 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ke
   );
 };
 
-interface ProjectProps {
-  openModal: (details: ProjectDetails) => void;
-}
-
-const Project: React.FC<ProjectProps> = ({ openModal }) => {
+const Project: React.FC = () => {
   const projects = [
     {
       image: '/projects/dinosaurmain.png',
@@ -105,7 +81,7 @@ const Project: React.FC<ProjectProps> = ({ openModal }) => {
         <h1 className="title">PROJECTS</h1>
         <div className="project-container">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} openModal={openModal} />
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
       </div>

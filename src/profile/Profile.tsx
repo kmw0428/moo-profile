@@ -4,14 +4,12 @@ import AboutMe from "../sections/AboutMe";
 import Skills from "../sections/Skills";
 import Project from "../sections/Project";
 import Contact from "../sections/Contact";
-import { ProjectDetails } from '../types';
 
 interface ProfileProps {
   onSectionChange: (sectionId: string) => void;
-  openModal: (details: ProjectDetails) => void;
 }
 
-export default function Profile({ onSectionChange, openModal }: ProfileProps) {
+export default function Profile({ onSectionChange }: ProfileProps) {
   const sectionRefs = useRef<Array<HTMLElement | null>>([]);
 
   const handleWheel = useCallback((event: WheelEvent) => {
@@ -49,7 +47,7 @@ export default function Profile({ onSectionChange, openModal }: ProfileProps) {
         <Skills />
       </div>
       <div ref={el => sectionRefs.current[2] = el} id="section3">
-        <Project openModal={openModal} />
+        <Project />
       </div>
       <div ref={el => sectionRefs.current[3] = el} id="section4" className='section-contact'>
         <Contact />
